@@ -20,11 +20,11 @@ const Hero = () => {
             </button>
           </div>
           {/* Author Image */}
-          <div className="flex justify-center md:max-w-[400px]">
+          <div className="flex justify-center md:max-w-[500px]">
             <img
               src={image01}
               alt="Professional businessman"
-              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg object-cover rounded-lg shadow-xl"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl object-cover rounded-lg"
             />
           </div>
         </div>
@@ -32,19 +32,14 @@ const Hero = () => {
         {/* About Section */}
         <div className="mt-24 lg:mt-32 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           {/* Profile Image */}
-          <div className="md:w-1/3 lg:w-1/2 flex justify-center">
+          <div className="md:w-1/3 lg:w-1/2 flex  ">
             <div className="relative group">
-              {/* Decorative circles */}
-              <div className="absolute inset-0 rounded-full border-2 border-[#B8860B] animate-[spin_20s_linear_infinite]" />
-              <div className="absolute inset-2 rounded-full border-2 border-[#B8860B] opacity-75 animate-[spin_15s_linear_infinite]" />
-              <div className="absolute inset-4 rounded-full border-2 border-[#B8860B] opacity-50 animate-[spin_10s_linear_infinite]" />
-
               {/* Main image container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-white shadow-2xl transition-transform duration-500 hover:scale-105">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#d7a547] shadow-2xl transition-transform duration-500 hover:scale-105">
                 <img 
                   src={img03}
                   alt="Dr. Pawan Verma" 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full  object-cover"
                 />
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

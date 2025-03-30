@@ -1,11 +1,12 @@
- 
-import user01 from '/user01.jpg'
-import { useState } from "react"
-import { Star, ChevronLeft, ChevronRight } from "lucide-react"
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import { Star } from "lucide-react"
+import usero2 from '/user02.jpg'
 
 const TestimonialCard = ({ name, image, rating, testimonial }) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="bg-white p-6 rounded-lg shadow-md min-w-[300px] w-full md:w-[350px] flex-shrink-0 mx-2">
       <div className="flex items-center mb-4">
         <img
           src={image || "/placeholder.svg"}
@@ -32,37 +33,70 @@ const TestimonialCard = ({ name, image, rating, testimonial }) => {
 
 const Testimonials = () => {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [totalSlides, setTotalSlides] = useState(0)
+  const [visibleSlides, setVisibleSlides] = useState(0)
+  const scrollContainerRef = useRef(null)
 
   const testimonials = [
     {
-      name: "Savannah Nguyen",
-      image:user01,
+      name: "	Kamalji Sahay, (Former MD & CEO), Star Union Dai-ichi Life Insurance",
+      image:usero2,
       rating: 4,
       testimonial:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia...",
+        "Those professionals interested in understanding what makes a person a leader and what makes a leader successful must read the Age of the Imperfect Leader. Students and teachers would also enjoy reading the book which is written in a very simple and convincing style. As one finishes reading the book one may spontaneously embrace the truth: Leadership doesn’t require you to be perfect",
     },
     {
-      name: "Floyd Miles",
-      image:user01,
+      name: "	Manish Mimani, (Founder & CEO), Protectt.ai Labs",
+      image:  usero2,
       rating: 4,
       testimonial:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
+        "It’s a must read for all the new generation leaders who wants to hone their leadership. It slowly takes us to understand that there is nothing called a perfect leader but the one who continually keep discovering, learning and create an environment of success is always a winner. All these has been explained in very easy to read and comprehensible lingo which is the most unique part of book",
     },
-    {
-      name: "Jane Cooper",
-      image:user01,
-      rating: 5,
-      testimonial:
-        "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
-    },
+   
+    
   ]
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      if (!scrollContainerRef.current) return
+
+      const containerWidth = scrollContainerRef.current.clientWidth
+      const cardWidth = 350 // Approximate width of a card including margins
+      const visibleCount = Math.floor(containerWidth / cardWidth)
+
+      setVisibleSlides(Math.max(1, visibleCount))
+      setTotalSlides(Math.max(0, testimonials.length - visibleCount))
+    }
+
+    updateVisibleSlides()
+    window.addEventListener("resize", updateVisibleSlides)
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleSlides)
+    }
+  }, [testimonials.length])
+
+  const scrollToSlide = (index) => {
+    setActiveSlide(index)
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth
+      scrollContainerRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: "smooth",
+      })
+    }
   }
 
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const scrollLeft = scrollContainerRef.current.scrollLeft
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth
+      const newActiveSlide = Math.round(scrollLeft / cardWidth)
+
+      if (newActiveSlide !== activeSlide) {
+        setActiveSlide(newActiveSlide)
+      }
+    }
   }
 
   return (
@@ -76,13 +110,18 @@ const Testimonials = () => {
             </h2>
             <div className="h-0.5 w-12 bg-[#B8860B]" />
           </div>
-          <p className="text-gray-600 mt-4">  Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and
+          <p className="text-gray-600 mt-4">Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and
           Management</p>
         </div>
-
+       
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.slice(activeSlide, activeSlide + 2).map((testimonial, index) => (
+          <div
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto pb-6 scrollbar-hide"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onScroll={handleScroll}
+          >
+            {testimonials.map((testimonial, index) => (
               <TestimonialCard
                 key={index}
                 name={testimonial.name}
@@ -93,30 +132,18 @@ const Testimonials = () => {
             ))}
           </div>
 
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={prevSlide}
-              className="mx-1 bg-gray-200 hover:bg-gray-300 rounded-md p-2"
-              aria-label="Previous testimonial"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveSlide(index)}
-                className={`mx-1 rounded-full w-3 h-3 ${index === activeSlide ? "bg-yellow-500" : "bg-gray-300"}`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-            <button
-              onClick={nextSlide}
-              className="mx-1 bg-gray-200 hover:bg-gray-300 rounded-md p-2"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
+          {totalSlides > 0 && (
+            <div className="flex justify-center mt-8">
+              {[...Array(totalSlides + 1)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToSlide(index)}
+                  className={`mx-1 rounded-full w-3 h-3 ${index === activeSlide ? "bg-yellow-500" : "bg-gray-300"}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

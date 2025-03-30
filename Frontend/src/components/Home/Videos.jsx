@@ -1,5 +1,5 @@
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import thumb01 from '/Hero01.jpeg';
 
 const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
@@ -14,7 +14,7 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
   const videoThumbnail = thumbnail || `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 
   return (
-    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg">
+    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg min-w-[280px] flex-shrink-0 mx-2">
       {isPlaying ? (
         <div className="relative w-full h-40 rounded-lg mb-2 overflow-hidden">
           {isLoading && (
@@ -37,7 +37,7 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
           <img
             src={videoThumbnail}
             alt={title}
-            className="w-full h-40 object-cover transition duration-500 transform group-hover:scale-110"
+            className="w-full h-44 object-cover transition duration-500 transform group-hover:scale-110"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = "/placeholder.svg?height=160&width=280";
@@ -71,9 +71,10 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
 };
 
 const Videos = () => {
+  const scrollContainerRef = useRef(null);
+  
   const videos = [
     {
-      thumbnail: thumb01,
       title: "The 10X Leader",
       views: "1.4K",
       time: "3 months",
@@ -101,12 +102,13 @@ const Videos = () => {
       duration: "4:19",
       youtubeId: "42LrSyYOwHU",
     },
+   
   ];
 
   return (
     <section className="py-16 bg-gradient-to-b from-white to-[#f5e9d1]">
       <div className="container mx-auto px-4">
-      <div className="text-center mb-12">
+        <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-2">
             <div className="h-0.5 w-12 bg-[#B8860B]" />
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
@@ -115,14 +117,25 @@ const Videos = () => {
             <div className="h-0.5 w-12 bg-[#B8860B]" />
           </div>
           <span className="ml-3 text-red-600 inline-block transform transition-transform hover:scale-110 duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
-              </svg>
-            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+            </svg>
+          </span>
         </div>
         
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {/* Desktop view - Grid layout */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {videos.map((video, index) => (
+            <VideoCard key={index} {...video} />
+          ))}
+        </div>
+        
+        {/* Mobile view - Horizontal scroll */}
+        <div
+          ref={scrollContainerRef}
+          className="flex md:hidden overflow-x-auto pb-6 no-scrollbar"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {videos.map((video, index) => (
             <VideoCard key={index} {...video} />
           ))}
@@ -131,5 +144,16 @@ const Videos = () => {
     </section>
   );
 };
+
+// Add this to your global CSS to hide scrollbars but keep functionality
+const style = `
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+`;
 
 export default Videos;

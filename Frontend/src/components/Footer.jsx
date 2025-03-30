@@ -12,19 +12,19 @@ const Footer = () => {
               Speaker and Management Consultant from India Speaker and Management Consultant from India
             </p>
             <div className="flex space-x-3">
-              <a href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
+              <a href="https://www.instagram.com/pawan.amrev/" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
+              <a href="https://www.facebook.com/AuthorPawan" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
+              <a href="https://x.com/pawankverma" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
                 <Twitter size={18} />
               </a>
-              <a href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
+              <a href="https://www.linkedin.com/in/pawanv/" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
+              <a href="https://www.youtube.com/channel/UCedk61TyParbxvKHyDev6ag" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
                 <Youtube size={18} />
               </a>
             </div>
