@@ -4,16 +4,24 @@ import thumb01 from '/Hero01.jpeg';
 
 const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const playVideo = () => setIsPlaying(true);
+  const playVideo = () => {
+    setIsLoading(true);
+    setIsPlaying(true);
+  };
 
-  // Generate thumbnail if not provided
   const videoThumbnail = thumbnail || `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 
   return (
-    <div className="group">
+    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg">
       {isPlaying ? (
-        <div className="relative w-full h-40 rounded-md mb-2 overflow-hidden">
+        <div className="relative w-full h-40 rounded-lg mb-2 overflow-hidden">
+          {isLoading && (
+            <div className="absolute inset-0 bg-gray-100 animate-pulse flex items-center justify-center">
+              <div className="w-8 h-8 border-4 border-red-600 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+          )}
           <iframe
             src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
             title={title}
@@ -21,34 +29,43 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
+            onLoad={() => setIsLoading(false)}
           ></iframe>
         </div>
       ) : (
-        <div className="relative overflow-hidden rounded-md mb-2">
+        <div className="relative overflow-hidden rounded-lg mb-2">
           <img
             src={videoThumbnail}
             alt={title}
-            className="w-full h-40 object-cover transition duration-300 group-hover:scale-105"
+            className="w-full h-40 object-cover transition duration-500 transform group-hover:scale-110"
             onError={(e) => {
               e.target.onerror = null;
               e.target.src = "/placeholder.svg?height=160&width=280";
             }}
           />
           <div 
-            className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 cursor-pointer"
+            className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer backdrop-blur-[2px]"
             onClick={playVideo}
           >
-            <div className="bg-red-600 rounded-full p-2">
-              <Play className="text-white" size={24} />
+            <div className="bg-red-600 rounded-full p-3 transform transition-transform duration-300 hover:scale-110 hover:bg-red-700">
+              <Play className="text-white animate-pulse" size={24} />
             </div>
           </div>
-          <div className="absolute bottom-2 right-2 bg-black text-white text-xs px-1 rounded">{duration}</div>
+          <div className="absolute bottom-2 right-2 bg-black text-white text-xs px-2 py-1 rounded-md backdrop-blur-sm bg-opacity-70">
+            {duration}
+          </div>
         </div>
       )}
-      <h3 className="font-medium text-sm mb-1 line-clamp-2">{title}</h3>
-      <p className="text-gray-600 text-xs">
-        {views} views • {time} ago
-      </p>
+      <div className="p-3">
+        <h3 className="font-medium text-sm mb-1 line-clamp-2 group-hover:text-red-600 transition-colors duration-300">
+          {title}
+        </h3>
+        <p className="text-gray-600 text-xs flex items-center gap-1">
+          <span>{views} views</span>
+          <span className="w-1 h-1 bg-gray-600 rounded-full"></span>
+          <span>{time} ago</span>
+        </p>
+      </div>
     </div>
   );
 };
@@ -87,20 +104,23 @@ const Videos = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
-      <hr />
-      <div className="container mx-auto mt-5 px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold inline-block relative">
-            Dr. Verma Talks
-           <hr />
-            <span className="ml-2 text-red-600">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 inline" viewBox="0 0 24 24" fill="currentColor">
+    <section className="py-16 bg-gradient-to-b from-white to-[#f5e9d1]">
+      <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+              Dr. Verma's Talk
+            </h2>
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+          </div>
+          <span className="ml-3 text-red-600 inline-block transform transition-transform hover:scale-110 duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 animate-bounce" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
               </svg>
             </span>
-          </h2>
         </div>
+        
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {videos.map((video, index) => (

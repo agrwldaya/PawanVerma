@@ -5,7 +5,7 @@ import book4 from '/book04.jpg';
 
 const BookCard = ({ title, description, image, altText }) => {
   return (
-    <div className="bg-[#f5e9d1] rounded-lg overflow-hidden shadow-md flex flex-col h-full">
+    <div className="bg-[#f5e9d1] rounded-lg overflow-hidden  shadow-md flex flex-col h-full">
       <img
         src={image || "/placeholder.svg"}
         alt={altText}
@@ -60,12 +60,16 @@ const Books = () => {
 
   return (
     <section id="books" className="py-16 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl mb-4 font-bold relative inline-block">
+      <div className="container mx-auto px-4 ">
+      <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             My Popular Books
-             <hr />
-          </h2>
+            </h2>
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+          </div>
+          <p className="text-gray-600 mt-4">Dr. Verma's books</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

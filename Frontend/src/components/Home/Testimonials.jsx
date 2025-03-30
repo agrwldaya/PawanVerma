@@ -1,5 +1,5 @@
-"use client"
-
+ 
+import user01 from '/user01.jpg'
 import { useState } from "react"
 import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 
@@ -36,24 +36,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       name: "Savannah Nguyen",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-29%20151325-Xfq6MiaV2U3qjl9rK0zcOzSzkTMesx.png",
+      image:user01,
       rating: 4,
       testimonial:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia...",
     },
     {
       name: "Floyd Miles",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-29%20151325-Xfq6MiaV2U3qjl9rK0zcOzSzkTMesx.png",
+      image:user01,
       rating: 4,
       testimonial:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
     },
     {
       name: "Jane Cooper",
-      image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-03-29%20151325-Xfq6MiaV2U3qjl9rK0zcOzSzkTMesx.png",
+      image:user01,
       rating: 5,
       testimonial:
         "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.",
@@ -69,14 +66,18 @@ const Testimonials = () => {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-gradient-to-b from-white to-[#f5e9d1]">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Book Testimonials</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and
-            Management
-          </p>
+      <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+            Book Testimonials
+            </h2>
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+          </div>
+          <p className="text-gray-600 mt-4">  Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and
+          Management</p>
         </div>
 
         <div className="relative">

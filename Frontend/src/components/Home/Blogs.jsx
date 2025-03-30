@@ -116,14 +116,17 @@ const Blogs = () => {
   ]
 
   return (
-    <section className="py-16 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold inline-block relative">
-            Blogs By Me
-            
-            <hr />
-          </h2>
+    <section className=" py-16 bg-gradient-to-b from-white to-[#f5e9d1]">
+      <div className="container mx-auto px-4 from-white to-[#f5e9d1]">
+      <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+              Blogs by me
+            </h2>
+            <div className="h-0.5 w-12 bg-[#B8860B]" />
+          </div>
+          <p className="text-gray-600 mt-4">Find Dr. Verma's blogs</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
