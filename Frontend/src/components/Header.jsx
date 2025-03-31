@@ -49,7 +49,7 @@ const Header = () => {
           <a href="#publishing" className="hover:text-yellow-500">
             Publishing
           </a>
-          <a href="pawan-verma.vercel.app/contact" className="hover:text-yellow-500">
+          <a href="/contact" className="hover:text-yellow-500">
             Contact
           </a>
         </nav>
@@ -77,7 +77,7 @@ const Header = () => {
             <a href="#publishing" className="hover:text-yellow-500">
               Publishing
             </a>
-            <a href="pawan-verma.vercel.app/contact" className="hover:text-yellow-500">
+            <a href="/contact" className="hover:text-yellow-500">
               Contact
             </a>
           </div>
