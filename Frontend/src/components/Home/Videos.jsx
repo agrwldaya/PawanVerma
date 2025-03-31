@@ -14,7 +14,7 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
   const videoThumbnail = thumbnail || `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 
   return (
-    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg min-w-[280px] w-full md:w-[280px] flex-shrink-0 mx-2">
+    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg min-w-[280px] w-full flex-shrink-0 mx-2">
       {isPlaying ? (
         <div className="relative w-full h-40 rounded-lg mb-2 overflow-hidden">
           {isLoading && (
@@ -167,7 +167,7 @@ const Videos = () => {
         </div>
         
         {/* Desktop view - Grid layout */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="hidden md:grid  md:grid-cols-2 items-center  lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {videos.map((video, index) => (
             <VideoCard key={index} {...video} />
           ))}
