@@ -1,10 +1,10 @@
-import image01 from '/Hero01.jpeg';
+import image01 from '/Hero01.png';
 import { ChevronRight } from 'lucide-react';
 import img03 from '/gallery03.png';
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-gradient-to-b from-white to-[#f5e9d1] py-16 lg:py-24 w-full">
+    <section id="home" className="bg-gradient-to-b from-white to-[#f5e9d1] w-full">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Quote and CTA */}
         <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12 lg:gap-20">
@@ -23,18 +23,18 @@ const Hero = () => {
             <img
               src={image01}
               alt="Professional businessman"
-              className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl object-cover rounded-lg"
+              className="w-full border-2 caret-neutral-400  mt-3  bg-[#3C2E26]   max-w-xs  sm:max-w-sm md:max-w-md lg:max-w-xl object-cover rounded-lg"
             />
           </div>
         </div>
 
         {/* About Section */}
-        <div className="mt-24 lg:mt-32 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+        <div className="mt-8 md:mt-32 lg:mt-32 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
           {/* Profile Image */}
           <div className="md:w-1/3 lg:w-1/2 flex  ">
             <div className="relative group">
               {/* Main image container */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#d7a547] shadow-2xl transition-transform duration-500 hover:scale-105">
+              <div className="relative  w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#d7a547] shadow-2xl transition-transform duration-500 hover:scale-105">
                 <img 
                   src={img03}
                   alt="Dr. Pawan Verma" 

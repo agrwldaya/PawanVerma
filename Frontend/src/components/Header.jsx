@@ -49,7 +49,7 @@ const Header = () => {
           <a href="#publishing" className="hover:text-yellow-500">
             Publishing
           </a>
-          <a href="/contact" className="hover:text-yellow-500">
+          <a href="pawan-verma.vercel.app/contact" className="hover:text-yellow-500">
             Contact
           </a>
         </nav>
@@ -57,9 +57,9 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <nav className="md:hidden bg-black py-4 px-4">
+        <nav className="md:hidden flex justify-center bg-black py-4 px-4">
           <div className="flex flex-col space-y-3">
-            <a href="#home" className="text-yellow-500 hover:text-yellow-300">
+            <a href="/" className="text-yellow-500 hover:text-yellow-300">
               Home
             </a>
             <a href="#about" className="hover:text-yellow-500">
@@ -77,7 +77,7 @@ const Header = () => {
             <a href="#publishing" className="hover:text-yellow-500">
               Publishing
             </a>
-            <a href="/contact" className="hover:text-yellow-500">
+            <a href="pawan-verma.vercel.app/contact" className="hover:text-yellow-500">
               Contact
             </a>
           </div>

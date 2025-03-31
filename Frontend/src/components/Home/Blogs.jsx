@@ -1,24 +1,26 @@
-
+"use client"
 
 import { useState, useRef, useEffect } from "react"
 import { Clock, MessageSquare, User } from "lucide-react"
-import img from "/Hero01.jpeg";
+import Hero01 from '/Hero01.jpeg'
 
 const BlogCard = ({ image, title, excerpt, author, readTime, comments }) => {
   return (
-    <div className="bg-white shadow-md h-auto  rounded-md overflow-hidden min-w-[280px] w-full md:w-[350px] flex-shrink-0 ">
-      <img
-        src={image || "/placeholder.svg"}
-        alt={title}
-        className="w-full h-48 object-cover"
-        onError={(e) => {
-          e.target.onerror = null
-          e.target.src = "/placeholder.svg?height=192&width=300"
-        }}
-      />
-      <div className="p-4">
+    <div className="bg-white shadow-md rounded-md overflow-hidden h-full flex flex-col">
+      <div className="relative pt-[60%]">
+        <img
+          src={image || "/placeholder.svg"}
+          alt={title}
+          className="absolute top-0 left-0 w-full h-full object-contain"
+          onError={(e) => {
+            e.target.onerror = null
+            e.target.src = "/placeholder.svg?height=192&width=300"
+          }}
+        />
+      </div>
+      <div className="p-4 flex-grow flex flex-col">
         <h3 className="font-bold text-lg mb-2">{title}</h3>
-        <p className="text-sm text-gray-600 mb-4 line-clamp-3">{excerpt}</p>
+        <p className="text-sm text-gray-600 mb-4 line-clamp-3 flex-grow">{excerpt}</p>
         <div className="flex justify-between items-center text-xs text-gray-500 mb-3">
           <div className="flex items-center">
             <User size={14} className="mr-1" />
@@ -46,7 +48,7 @@ const Blogs = () => {
 
   const blogs = [
     {
-      image:img,
+      image:Hero01,
       title: "Blog Title Here",
       excerpt:
         "Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and Management Consultant from India's financial services...",
@@ -55,7 +57,7 @@ const Blogs = () => {
       comments: "No Comments",
     },
     {
-      image:img,
+      image:Hero01,
       title: "Blog Title Here",
       excerpt:
         "Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and Management Consultant from India's financial services...",
@@ -64,7 +66,7 @@ const Blogs = () => {
       comments: "No Comments",
     },
     {
-      image:img,
+      image:Hero01,
       title: "Blog Title Here",
       excerpt:
         "Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and Management Consultant from India's financial services...",
@@ -79,7 +81,7 @@ const Blogs = () => {
       if (!scrollContainerRef.current) return
 
       const containerWidth = scrollContainerRef.current.clientWidth
-      const cardWidth = 350 // Approximate width of a card including margins
+      const cardWidth = 300 // Approximate width of a card including margins
       const visibleCount = Math.floor(containerWidth / cardWidth)
 
       setTotalSlides(Math.max(0, blogs.length - Math.max(1, visibleCount)))
@@ -120,25 +122,25 @@ const Blogs = () => {
     <section className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <div className="h-0.5 w-12 bg-[#B8860B]" />
-            <h2 className="text-2xl md:text-3xl font-bold">Blogs By Me</h2>
-            <div className="h-0.5 w-12 bg-[#B8860B]" />
-          </div>
+          <h2 className="text-2xl md:text-3xl font-bold inline-block relative">
+            Blogs By Me
+            <div className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-500"></div>
+          </h2>
         </div>
 
         {/* Desktop view - Grid layout */}
-        <div className="hidden md:grid md:grid-cols-4">
+        <div className="hidden md:grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {blogs.map((blog, index) => (
-            <BlogCard
-              key={index}
-              image={blog.image}
-              title={blog.title}
-              excerpt={blog.excerpt}
-              author={blog.author}
-              readTime={blog.readTime}
-              comments={blog.comments}
-            />
+            <div key={index} className="h-full">
+              <BlogCard
+                image={blog.image}
+                title={blog.title}
+                excerpt={blog.excerpt}
+                author={blog.author}
+                readTime={blog.readTime}
+                comments={blog.comments}
+              />
+            </div>
           ))}
         </div>
 
@@ -151,15 +153,16 @@ const Blogs = () => {
             onScroll={handleScroll}
           >
             {blogs.map((blog, index) => (
-              <BlogCard
-                key={index}
-                image={blog.image}
-                title={blog.title}
-                excerpt={blog.excerpt}
-                author={blog.author}
-                readTime={blog.readTime}
-                comments={blog.comments}
-              />
+              <div key={index} className="min-w-[300px] w-[300px] flex-shrink-0 mx-2">
+                <BlogCard
+                  image={blog.image}
+                  title={blog.title}
+                  excerpt={blog.excerpt}
+                  author={blog.author}
+                  readTime={blog.readTime}
+                  comments={blog.comments}
+                />
+              </div>
             ))}
           </div>
 
