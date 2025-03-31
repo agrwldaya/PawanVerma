@@ -1,5 +1,5 @@
 import { Play } from "lucide-react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import thumb01 from '/Hero01.jpeg';
 
 const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
@@ -14,7 +14,7 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
   const videoThumbnail = thumbnail || `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
 
   return (
-    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg min-w-[280px] flex-shrink-0 mx-2">
+    <div className="group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl rounded-lg min-w-[280px] w-full md:w-[280px] flex-shrink-0 mx-2">
       {isPlaying ? (
         <div className="relative w-full h-40 rounded-lg mb-2 overflow-hidden">
           {isLoading && (
@@ -71,6 +71,8 @@ const VideoCard = ({ title, views, time, duration, youtubeId, thumbnail }) => {
 };
 
 const Videos = () => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [totalSlides, setTotalSlides] = useState(0);
   const scrollContainerRef = useRef(null);
   
   const videos = [
@@ -102,8 +104,49 @@ const Videos = () => {
       duration: "4:19",
       youtubeId: "42LrSyYOwHU",
     },
-   
   ];
+
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      if (!scrollContainerRef.current) return;
+
+      const containerWidth = scrollContainerRef.current.clientWidth;
+      const cardWidth = 280; // Approximate width of a card including margins
+      const visibleCount = Math.floor(containerWidth / cardWidth);
+
+      setTotalSlides(Math.max(0, videos.length - Math.max(1, visibleCount)));
+    };
+
+    updateVisibleSlides();
+    window.addEventListener("resize", updateVisibleSlides);
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleSlides);
+    };
+  }, [videos.length]);
+
+  const scrollToSlide = (index) => {
+    setActiveSlide(index);
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth;
+      scrollContainerRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const scrollLeft = scrollContainerRef.current.scrollLeft;
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth;
+      const newActiveSlide = Math.round(scrollLeft / cardWidth);
+
+      if (newActiveSlide !== activeSlide) {
+        setActiveSlide(newActiveSlide);
+      }
+    }
+  };
 
   return (
     <section className="py-16 bg-gradient-to-b from-white to-[#f5e9d1]">
@@ -131,14 +174,31 @@ const Videos = () => {
         </div>
         
         {/* Mobile view - Horizontal scroll */}
-        <div
-          ref={scrollContainerRef}
-          className="flex md:hidden overflow-x-auto pb-6 no-scrollbar"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {videos.map((video, index) => (
-            <VideoCard key={index} {...video} />
-          ))}
+        <div className="md:hidden">
+          <div
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto pb-6 no-scrollbar"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onScroll={handleScroll}
+          >
+            {videos.map((video, index) => (
+              <VideoCard key={index} {...video} />
+            ))}
+          </div>
+
+          {/* Pagination dots for mobile */}
+          {totalSlides > 0 && (
+            <div className="flex justify-center mt-4">
+              {[...Array(totalSlides + 1)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToSlide(index)}
+                  className={`mx-1 rounded-full w-3 h-3 ${index === activeSlide ? "bg-yellow-500" : "bg-gray-300"} transition-colors duration-300`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

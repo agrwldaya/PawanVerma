@@ -1,8 +1,12 @@
- 
-import { useRef } from "react"
+"use client"
+
+import { useState, useRef, useEffect } from "react"
 
 const AvailableOn = () => {
+  const [activeSlide, setActiveSlide] = useState(0)
+  const [totalSlides, setTotalSlides] = useState(0)
   const scrollContainerRef = useRef(null)
+  const autoScrollIntervalRef = useRef(null)
 
   // Using placeholder paths for the images
   const amazonLogo = "/amazon.png"
@@ -17,6 +21,73 @@ const AvailableOn = () => {
     { src: kindleLogo, alt: "Amazon Kindle" },
     { src: goodreadsLogo, alt: "Goodreads" },
   ]
+
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      if (!scrollContainerRef.current) return
+
+      const containerWidth = scrollContainerRef.current.clientWidth
+      const cardWidth = 160 // Approximate width of a logo card including margins
+      const visibleCount = Math.floor(containerWidth / cardWidth)
+
+      setTotalSlides(Math.max(0, logos.length - Math.max(1, visibleCount)))
+    }
+
+    updateVisibleSlides()
+    window.addEventListener("resize", updateVisibleSlides)
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleSlides)
+    }
+  }, [logos.length])
+
+  // Auto-scrolling functionality
+  useEffect(() => {
+    if (totalSlides > 0) {
+      autoScrollIntervalRef.current = setInterval(() => {
+        const nextSlide = (activeSlide + 1) % (totalSlides + 1)
+        scrollToSlide(nextSlide)
+      }, 3000) // Change slide every 3 seconds
+    }
+
+    return () => {
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current)
+      }
+    }
+  }, [activeSlide, totalSlides])
+
+  const scrollToSlide = (index) => {
+    setActiveSlide(index)
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth
+      scrollContainerRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const scrollLeft = scrollContainerRef.current.scrollLeft
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth
+      const newActiveSlide = Math.round(scrollLeft / cardWidth)
+
+      if (newActiveSlide !== activeSlide) {
+        setActiveSlide(newActiveSlide)
+
+        // Reset auto-scroll timer when user manually scrolls
+        if (autoScrollIntervalRef.current) {
+          clearInterval(autoScrollIntervalRef.current)
+          autoScrollIntervalRef.current = setInterval(() => {
+            const nextSlide = (activeSlide + 1) % (totalSlides + 1)
+            scrollToSlide(nextSlide)
+          }, 3000)
+        }
+      }
+    }
+  }
 
   return (
     <section
@@ -52,10 +123,12 @@ const AvailableOn = () => {
       </div>
 
       {/* Mobile view - Horizontal scroll */}
-      <div ref={scrollContainerRef} className="relative md:hidden w-full max-w-full px-4">
+      <div className="relative md:hidden w-full max-w-full px-4">
         <div
+          ref={scrollContainerRef}
           className="flex overflow-x-auto pb-6 scrollbar-hide"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          onScroll={handleScroll}
         >
           {logos.map((logo, index) => (
             <div
@@ -74,6 +147,20 @@ const AvailableOn = () => {
             </div>
           ))}
         </div>
+
+        {/* Pagination dots for mobile */}
+        {totalSlides > 0 && (
+          <div className="flex justify-center mt-4">
+            {[...Array(totalSlides + 1)].map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSlide(index)}
+                className={`mx-1 rounded-full w-3 h-3 ${index === activeSlide ? "bg-yellow-500" : "bg-gray-300"}`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

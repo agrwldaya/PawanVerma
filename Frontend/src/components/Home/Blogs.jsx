@@ -1,19 +1,19 @@
-"use client";
 
-import { useRef } from "react";
-import { Clock, MessageSquare, User } from "lucide-react";
+
+import { useState, useRef, useEffect } from "react"
+import { Clock, MessageSquare, User } from "lucide-react"
 import img from "/Hero01.jpeg";
 
 const BlogCard = ({ image, title, excerpt, author, readTime, comments }) => {
   return (
-    <div className="bg-white shadow-md rounded-md overflow-hidden min-w-[280px] w-full md:w-[350px] flex-shrink-0 mx-2">
+    <div className="bg-white shadow-md h-auto  rounded-md overflow-hidden min-w-[280px] w-full md:w-[350px] flex-shrink-0 ">
       <img
         src={image || "/placeholder.svg"}
         alt={title}
         className="w-full h-48 object-cover"
         onError={(e) => {
-          e.target.onerror = null;
-          e.target.src = "/placeholder.svg?height=192&width=300";
+          e.target.onerror = null
+          e.target.src = "/placeholder.svg?height=192&width=300"
         }}
       />
       <div className="p-4">
@@ -36,38 +36,85 @@ const BlogCard = ({ image, title, excerpt, author, readTime, comments }) => {
         <button className="text-yellow-600 hover:text-yellow-800 text-sm font-medium">Read More...</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Blogs = () => {
-  const scrollContainerRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0)
+  const [totalSlides, setTotalSlides] = useState(0)
+  const scrollContainerRef = useRef(null)
 
   const blogs = [
     {
-      image: img,
+      image:img,
       title: "Blog Title Here",
-      excerpt: "Speaker and Management Consultant from India's financial services industry...",
+      excerpt:
+        "Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and Management Consultant from India's financial services...",
       author: "Pawan Verma",
       readTime: "5 Mins",
       comments: "No Comments",
     },
     {
-      image: img,
-      title: "Another Blog Title",
-      excerpt: "Exploring unique leadership insights with a practical approach...",
+      image:img,
+      title: "Blog Title Here",
+      excerpt:
+        "Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and Management Consultant from India's financial services...",
       author: "Pawan Verma",
       readTime: "7 Mins",
-      comments: "2 Comments",
+      comments: "No Comments",
     },
     {
-      image: img,
-      title: "Yet Another Blog Title",
-      excerpt: "Transformative ideas for professionals navigating modern challenges...",
+      image:img,
+      title: "Blog Title Here",
+      excerpt:
+        "Speaker and Management Consultant from India Speaker and Management Consultant from India Speaker and Management Consultant from India's financial services...",
       author: "Pawan Verma",
       readTime: "10 Mins",
-      comments: "5 Comments",
+      comments: "No Comments",
     },
-  ];
+  ]
+
+  useEffect(() => {
+    const updateVisibleSlides = () => {
+      if (!scrollContainerRef.current) return
+
+      const containerWidth = scrollContainerRef.current.clientWidth
+      const cardWidth = 350 // Approximate width of a card including margins
+      const visibleCount = Math.floor(containerWidth / cardWidth)
+
+      setTotalSlides(Math.max(0, blogs.length - Math.max(1, visibleCount)))
+    }
+
+    updateVisibleSlides()
+    window.addEventListener("resize", updateVisibleSlides)
+
+    return () => {
+      window.removeEventListener("resize", updateVisibleSlides)
+    }
+  }, [blogs.length])
+
+  const scrollToSlide = (index) => {
+    setActiveSlide(index)
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth
+      scrollContainerRef.current.scrollTo({
+        left: index * cardWidth,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const scrollLeft = scrollContainerRef.current.scrollLeft
+      const cardWidth = scrollContainerRef.current.querySelector("div").offsetWidth
+      const newActiveSlide = Math.round(scrollLeft / cardWidth)
+
+      if (newActiveSlide !== activeSlide) {
+        setActiveSlide(newActiveSlide)
+      }
+    }
+  }
 
   return (
     <section className="py-16 bg-gray-100">
@@ -81,7 +128,7 @@ const Blogs = () => {
         </div>
 
         {/* Desktop view - Grid layout */}
-        <div className="hidden md:grid md:grid-cols-4 gap-6">
+        <div className="hidden md:grid md:grid-cols-4">
           {blogs.map((blog, index) => (
             <BlogCard
               key={index}
@@ -96,22 +143,39 @@ const Blogs = () => {
         </div>
 
         {/* Mobile view - Horizontal scroll */}
-        <div
-          ref={scrollContainerRef}
-          className="flex md:hidden overflow-x-auto pb-6 scrollbar-hide"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {blogs.map((blog, index) => (
-            <BlogCard
-              key={index}
-              image={blog.image}
-              title={blog.title}
-              excerpt={blog.excerpt}
-              author={blog.author}
-              readTime={blog.readTime}
-              comments={blog.comments}
-            />
-          ))}
+        <div className="md:hidden">
+          <div
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto pb-6 scrollbar-hide"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onScroll={handleScroll}
+          >
+            {blogs.map((blog, index) => (
+              <BlogCard
+                key={index}
+                image={blog.image}
+                title={blog.title}
+                excerpt={blog.excerpt}
+                author={blog.author}
+                readTime={blog.readTime}
+                comments={blog.comments}
+              />
+            ))}
+          </div>
+
+          {/* Pagination dots for mobile */}
+          {totalSlides > 0 && (
+            <div className="flex justify-center mt-4">
+              {[...Array(totalSlides + 1)].map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => scrollToSlide(index)}
+                  className={`mx-1 rounded-full w-3 h-3 ${index === activeSlide ? "bg-yellow-500" : "bg-gray-300"}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="text-center mt-8">
@@ -121,7 +185,8 @@ const Blogs = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Blogs;
+export default Blogs
+
