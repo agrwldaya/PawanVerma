@@ -31,7 +31,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6 ">
-          <a href="#home" className="text-yellow-500 hover:text-yellow-300">
+          <a href="/" className="text-yellow-500 hover:text-yellow-300">
             Home
           </a>
           <a href="#about" className="hover:text-yellow-500">
@@ -49,7 +49,7 @@ const Header = () => {
           <a href="#publishing" className="hover:text-yellow-500">
             Publishing
           </a>
-          <a href="#contact" className="hover:text-yellow-500">
+          <a href="/contact" className="hover:text-yellow-500">
             Contact
           </a>
         </nav>
@@ -77,7 +77,7 @@ const Header = () => {
             <a href="#publishing" className="hover:text-yellow-500">
               Publishing
             </a>
-            <a href="#contact" className="hover:text-yellow-500">
+            <a href="/contact" className="hover:text-yellow-500">
               Contact
             </a>
           </div>
