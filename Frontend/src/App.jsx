@@ -18,7 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="pawan-verma.vercel.app/contact" element={<ContactUs />} /> 
+          <Route path="/contact" element={<ContactUs />} /> 
         </Routes>
         <Footer />
       </div>
