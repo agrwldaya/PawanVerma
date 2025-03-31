@@ -1,5 +1,4 @@
 import image01 from '/Hero01.jpeg';
-import image02 from '/Hero02.jpg';
 import { ChevronRight } from 'lucide-react';
 import img03 from '/gallery03.png';
 
