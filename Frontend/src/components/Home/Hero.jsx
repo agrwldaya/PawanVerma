@@ -23,13 +23,13 @@ const Hero = () => {
             <img
               src={image01}
               alt="Professional businessman"
-              className="w-full border-2 caret-neutral-400  mt-3  bg-[#3C2E26]   max-w-xs  sm:max-w-sm md:max-w-md lg:max-w-xl object-cover rounded-lg"
+              className="w-full border-2 caret-neutral-400  mt-10  bg-[#3C2E26]   max-w-xs  sm:max-w-sm md:max-w-md lg:max-w-xl object-cover rounded-lg"
             />
           </div>
         </div>
 
         {/* About Section */}
-        <div className="mt-8 md:mt-32 lg:mt-32 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+        <div className="mt-5 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Profile Image */}
           <div className="md:w-1/3 lg:w-1/2 flex  ">
             <div className="relative group">

@@ -10,6 +10,7 @@ import Header from "./components/Header";
 // import Testimonials from "./components/Home/Testimonials";
 // import Videos from "./components/Home/Videos";
 import Home from "./Home";
+import BookPage from "./components/Bookpage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<ContactUs />} /> 
+          <Route path="/book" element={<BookPage />} /> 
         </Routes>
         <Footer />
       </div>
