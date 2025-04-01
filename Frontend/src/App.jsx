@@ -10,22 +10,32 @@ import Header from "./components/Header";
 // import Testimonials from "./components/Home/Testimonials";
 // import Videos from "./components/Home/Videos";
 import Home from "./Home";
-import BookPage from "./components/Bookpage";
+import BookAgeOf from "./components/Pages/BookAgeOf";
+import BookTheLeader from "./components/Pages/BookTheLeader";
+import BookUnB from "./components/Pages/BookUnB";
+import BookNoClo from "./components/Pages/BookNoClo";
+import ScrollToTop from "./components/ScrollToTop";
+ 
 
-function App() {
-  return (
-    <Router>
-      <div className="font-sans">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<ContactUs />} /> 
-          <Route path="/book" element={<BookPage />} /> 
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-  );
-}
-
+ 
+  function App() {
+    return (
+      <Router>
+        <ScrollToTop />
+        <div className="font-sans">
+          <Header />
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contact" element={<ContactUs />} /> 
+              <Route path="/book/age-of-the-impatient-leader" element={<BookAgeOf />} /> 
+              <Route path="/book/the-10x-leader" element={<BookTheLeader />} /> 
+              <Route path="/book/unbroken" element={<BookUnB />} /> 
+              <Route path="/book/no-closure-no-forgiveness" element={<BookNoClo />} /> 
+            </Routes>
+          <Footer />
+        </div>
+      </Router>
+    );
+  }
+  
 export default App;

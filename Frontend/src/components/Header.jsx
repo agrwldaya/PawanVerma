@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("/"); // Default active link
+
+  // Set active link based on the current URL when the component mounts
+  useEffect(() => {
+    setActiveLink(window.location.pathname);
+  }, []);
 
   return (
     <header className="bg-black text-white">
@@ -30,28 +36,27 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6 ">
-          <a href="/" className="text-yellow-500 hover:text-yellow-300">
-            Home
-          </a>
-          <a href="#about" className="hover:text-yellow-500">
-            About
-          </a>
-          <a href="#books" className="hover:text-yellow-500">
-            Books
-          </a>
-          <a href="#speaking" className="hover:text-yellow-500">
-            Speaking
-          </a>
-          <a href="#consulting" className="hover:text-yellow-500">
-            Consulting
-          </a>
-          <a href="#publishing" className="hover:text-yellow-500">
-            Publishing
-          </a>
-          <a href="/contact" className="hover:text-yellow-500">
-            Contact
-          </a>
+        <nav className="hidden md:flex space-x-6">
+          {[
+            { label: "Home", href: "/" },
+            { label: "About", href: "/#about" },
+            { label: "Books", href: "/book/age-of-the-impatient-leader" },
+            { label: "Speaking", href: "/#speaking" },
+            { label: "Consulting", href: "/#consulting" },
+            { label: "Publishing", href: "/#publishing" },
+            { label: "Contact", href: "/contact" },
+          ].map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={`px-4 py-2 transition duration-300 ${
+                activeLink === link.href ? "text-yellow-500" : "hover:text-yellow-500"
+              }`}
+              onClick={() => setActiveLink(link.href)}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
       </div>
 
@@ -59,27 +64,26 @@ const Header = () => {
       {isMenuOpen && (
         <nav className="md:hidden flex justify-center bg-black py-4 px-4">
           <div className="flex flex-col space-y-3">
-            <a href="/" className="text-yellow-500 hover:text-yellow-300">
-              Home
-            </a>
-            <a href="#about" className="hover:text-yellow-500">
-              About
-            </a>
-            <a href="#books" className="hover:text-yellow-500">
-              Books
-            </a>
-            <a href="#speaking" className="hover:text-yellow-500">
-              Speaking
-            </a>
-            <a href="#consulting" className="hover:text-yellow-500">
-              Consulting
-            </a>
-            <a href="#publishing" className="hover:text-yellow-500">
-              Publishing
-            </a>
-            <a href="/contact" className="hover:text-yellow-500">
-              Contact
-            </a>
+            {[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/about" },
+              { label: "Books", href: "/book/age-of-the-impatient-leader" },
+              { label: "Speaking", href: "/speaking" },
+              { label: "Consulting", href: "/consulting" },
+              { label: "Publishing", href: "/publishing" },
+              { label: "Contact", href: "/contact" },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 transition duration-300 ${
+                  activeLink === link.href ? "text-yellow-500" : "hover:text-yellow-500"
+                }`}
+                onClick={() => setActiveLink(link.href)}
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
         </nav>
       )}

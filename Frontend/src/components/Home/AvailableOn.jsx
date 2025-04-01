@@ -13,7 +13,7 @@ const AvailableOn = () => {
   const flipkartLogo = "/flipcart.jpg"
   const kindleLogo = "/amazonkindle.png"
   const goodreadsLogo = "/Goodreads.png"
-  const bgimage = "library.jpg"
+  const bgimage = "/library.jpg"
 
   const logos = [
     { src: amazonLogo, alt: "Amazon" },
