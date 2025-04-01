@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/"); // Default active link
+  const location = useLocation(); // Get current route
 
-  // Set active link based on the current URL when the component mounts
-  useEffect(() => {
-    setActiveLink(window.location.pathname);
-  }, []);
+  // Function to check if the "Books" menu should be active
+  const isBooksActive = location.pathname.startsWith("/book");
 
   return (
     <header className="bg-black text-white">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        {/* Logo */}
         <div className="flex items-center">
           <div className="mr-4 w-full h-20">
             <img
@@ -45,18 +45,21 @@ const Header = () => {
             { label: "Consulting", href: "/#consulting" },
             { label: "Publishing", href: "/#publishing" },
             { label: "Contact", href: "/contact" },
-          ].map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`px-4 py-2 transition duration-300 ${
-                activeLink === link.href ? "text-yellow-500" : "hover:text-yellow-500"
-              }`}
-              onClick={() => setActiveLink(link.href)}
-            >
-              {link.label}
-            </a>
-          ))}
+          ].map((link) => {
+            const isActive = location.pathname === link.href || (link.label === "Books" && isBooksActive);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative px-4 py-2 transition duration-300 ${
+                  isActive ? "text-yellow-500" : "hover:text-yellow-500"
+                }`}
+              >
+                {link.label}
+                {isActive && <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-500"></div>}
+              </a>
+            );
+          })}
         </nav>
       </div>
 
@@ -66,24 +69,27 @@ const Header = () => {
           <div className="flex flex-col space-y-3">
             {[
               { label: "Home", href: "/" },
-              { label: "About", href: "/about" },
+              { label: "About", href: "/#about" },
               { label: "Books", href: "/book/age-of-the-impatient-leader" },
-              { label: "Speaking", href: "/speaking" },
-              { label: "Consulting", href: "/consulting" },
-              { label: "Publishing", href: "/publishing" },
+              { label: "Speaking", href: "/#speaking" },
+              { label: "Consulting", href: "/#consulting" },
+              { label: "Publishing", href: "/#publishing" },
               { label: "Contact", href: "/contact" },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-2 transition duration-300 ${
-                  activeLink === link.href ? "text-yellow-500" : "hover:text-yellow-500"
-                }`}
-                onClick={() => setActiveLink(link.href)}
-              >
-                {link.label}
-              </a>
-            ))}
+            ].map((link) => {
+              const isActive = location.pathname === link.href || (link.label === "Books" && isBooksActive);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`relative px-4 py-2 transition duration-300 ${
+                    isActive ? "text-yellow-500" : "hover:text-yellow-500"
+                  }`}
+                >
+                  {link.label}
+                  {isActive && <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-500"></div>}
+                </a>
+              );
+            })}
           </div>
         </nav>
       )}
