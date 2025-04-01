@@ -29,7 +29,7 @@ const Hero = () => {
         </div>
 
         {/* About Section */}
-        <div className="mt-5 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+        <div className="mt-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
           {/* Profile Image */}
           <div className="md:w-1/3 lg:w-1/2 flex  ">
             <div className="relative group">
@@ -38,7 +38,7 @@ const Hero = () => {
                 <img 
                   src={img03}
                   alt="Dr. Pawan Verma" 
-                  className="w-full h-full  object-cover"
+                  className="w-full h-full mt-5  object-cover"
                 />
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
