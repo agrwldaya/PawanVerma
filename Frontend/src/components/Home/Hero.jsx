@@ -4,7 +4,7 @@ import img03 from '/gallery03.png';
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-gradient-to-b from-white to-[#f5e9d1] w-full">
+    <section id="home" className="bg-gradient-to-b mt-5 from-white to-[#f5e9d1] w-full">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Quote and CTA */}
         <div className="flex flex-col-reverse md:flex-row items-center justify-between w-full gap-12 lg:gap-20">
@@ -34,11 +34,11 @@ const Hero = () => {
           <div className="md:w-1/3 lg:w-1/2 flex  ">
             <div className="relative group">
               {/* Main image container */}
-              <div className="relative mt-5 mb-2  w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#d7a547] shadow-2xl transition-transform duration-500 hover:scale-105">
+              <div className="relative  mb-2  w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-[#d7a547] shadow-2xl transition-transform duration-500 hover:scale-105">
                 <img 
                   src={img03}
                   alt="Dr. Pawan Verma" 
-                  className="w-full h-full mt-15 object-cover"
+                  className="w-full h-full  object-cover"
                 />
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
