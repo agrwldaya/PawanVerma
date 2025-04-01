@@ -188,7 +188,7 @@ const Videos = () => {
 
           {/* Pagination dots for mobile */}
           {totalSlides > 0 && (
-            <div className="flex justify-center mt-4">
+            <div className="flex justify-center mt-4 pb-5">
               {[...Array(totalSlides + 1)].map((_, index) => (
                 <button
                   key={index}

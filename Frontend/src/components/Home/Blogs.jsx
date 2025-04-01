@@ -6,7 +6,7 @@ import Hero01 from '/Hero01.jpeg'
 
 const BlogCard = ({ image, title, excerpt, author, readTime, comments }) => {
   return (
-    <div className="bg-white shadow-md rounded-md overflow-hidden h-full flex flex-col">
+    <div className="bg-white shadow-md rounded-md overflow-hidden  h-full flex flex-col">
       <div className="relative pt-[60%]">
         <img
           src={image || "/placeholder.svg"}
