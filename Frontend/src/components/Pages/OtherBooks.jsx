@@ -75,7 +75,7 @@ const OtherBooks = ({bookTitle}) => {
  
  
   return (
-    <section id="books" className="py-10 bg-white">
+    <section id="books" className="py-10 bg-white items-center">
       <div className="container mx-auto">
         <div className="text-center mb-10">
           <div className="flex items-center justify-center mb-2">
@@ -94,7 +94,8 @@ const OtherBooks = ({bookTitle}) => {
           </div>
         </div>
 
-        <div className=" px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center">
+        <div className="px-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center items-center mx-auto w-full max-w-screen-lg">
+
           {newBooks.map((book, index) => (
             <BookCard
               key={index}
