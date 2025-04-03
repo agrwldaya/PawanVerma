@@ -42,7 +42,7 @@ const Header = () => {
             { label: "About", href: "/about" },
             { label: "Books", href: "/book/age-of-the-impatient-leader" },
             { label: "Speaking", href: "/speaking" },
-            { label: "Consulting", href: "/#consulting" },
+            { label: "Consulting", href: "/consulting" },
             { label: "Publishing", href: "/#publishing" },
             { label: "Contact", href: "/contact" },
           ].map((link) => {
@@ -71,7 +71,7 @@ const Header = () => {
             { label: "About", href: "/about" },
             { label: "Books", href: "/book/age-of-the-impatient-leader" },
             { label: "Speaking", href: "/speaking" },
-            { label: "Consulting", href: "/#consulting" },
+            { label: "Consulting", href: "/consulting" },
             { label: "Publishing", href: "/#publishing" },
             { label: "Contact", href: "/contact" },
           ].map((link) => {

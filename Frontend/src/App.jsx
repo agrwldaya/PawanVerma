@@ -17,6 +17,7 @@ import BookNoClo from "./components/Pages/BookNoClo";
 import ScrollToTop from "./components/ScrollToTop";
 import AboutPage from "./components/AboutUs";
 import SpeakingPage from "./components/Speaking";
+import ConsultingPage from "./components/Consulting";
  
 
  
@@ -35,6 +36,7 @@ import SpeakingPage from "./components/Speaking";
               <Route path="/book/no-closure-no-forgiveness" element={<BookNoClo />} /> 
               <Route path="/about" element={<AboutPage/>} /> 
               <Route path="/speaking" element={<SpeakingPage/>} /> 
+              <Route path="/consulting" element={<ConsultingPage/>} /> 
             </Routes>
           <Footer />
         </div>
