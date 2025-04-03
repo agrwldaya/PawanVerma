@@ -19,8 +19,8 @@ const SpeakingPage = () => {
       <section className="relative bg-gradient-to-b mt-5  from-white to-[#f5e9d1] ">
         <div className="absolute inset-0 opacity-30 bg-[url('/placeholder.svg')] bg-cover bg-center"></div>
         <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0">
+          <div className="flex flex-col md:flex-row ">
+            <div className="md:w-1/2 mb-8 md:mb-0 mt-10">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Inspiring Audiences Worldwide</h1>
               <p className="text-xl text-yellow-500 mb-6">Transformative Insights for Business Leaders</p>
               <p className="text-lg leading-relaxed mb-8">
