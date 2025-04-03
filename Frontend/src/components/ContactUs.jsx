@@ -8,7 +8,7 @@ function Contactus() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen  bg-gradient-to-b from-white to-[#f5e9d1] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row bg-white rounded-2xl overflow-hidden shadow-2xl">
           {/* Left Section - Contact Info */}
@@ -67,7 +67,7 @@ function Contactus() {
           </div>
 
           {/* Right Section - Contact Form */}
-          <div className="lg:w-3/5 p-12">
+          <div className="lg:w-3/5 p-12 bg-gradient-to-b  from-white to-[#f5e9d1]">
             <div className="max-w-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

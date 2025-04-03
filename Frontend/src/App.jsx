@@ -15,6 +15,8 @@ import BookTheLeader from "./components/Pages/BookTheLeader";
 import BookUnB from "./components/Pages/BookUnB";
 import BookNoClo from "./components/Pages/BookNoClo";
 import ScrollToTop from "./components/ScrollToTop";
+import AboutPage from "./components/AboutUs";
+import SpeakingPage from "./components/Speaking";
  
 
  
@@ -31,6 +33,8 @@ import ScrollToTop from "./components/ScrollToTop";
               <Route path="/book/the-10x-leader" element={<BookTheLeader />} /> 
               <Route path="/book/unbroken" element={<BookUnB />} /> 
               <Route path="/book/no-closure-no-forgiveness" element={<BookNoClo />} /> 
+              <Route path="/about" element={<AboutPage/>} /> 
+              <Route path="/speaking" element={<SpeakingPage/>} /> 
             </Routes>
           <Footer />
         </div>

@@ -119,7 +119,7 @@ const Blogs = () => {
   }
 
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-7  bg-gradient-to-b from-white to-[#f5e9d1]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl font-bold inline-block relative">

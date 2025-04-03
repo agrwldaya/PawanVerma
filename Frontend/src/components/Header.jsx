@@ -39,9 +39,9 @@ const Header = () => {
         <nav className="hidden md:flex space-x-6">
           {[
             { label: "Home", href: "/" },
-            { label: "About", href: "/#about" },
+            { label: "About", href: "/about" },
             { label: "Books", href: "/book/age-of-the-impatient-leader" },
-            { label: "Speaking", href: "/#speaking" },
+            { label: "Speaking", href: "/speaking" },
             { label: "Consulting", href: "/#consulting" },
             { label: "Publishing", href: "/#publishing" },
             { label: "Contact", href: "/contact" },
@@ -68,9 +68,9 @@ const Header = () => {
         <nav className="md:hidden flex flex-col items-center bg-black py-4 px-4 text-center space-y-3">
           {[
             { label: "Home", href: "/" },
-            { label: "About", href: "/#about" },
+            { label: "About", href: "/about" },
             { label: "Books", href: "/book/age-of-the-impatient-leader" },
-            { label: "Speaking", href: "/#speaking" },
+            { label: "Speaking", href: "/speaking" },
             { label: "Consulting", href: "/#consulting" },
             { label: "Publishing", href: "/#publishing" },
             { label: "Contact", href: "/contact" },

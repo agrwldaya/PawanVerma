@@ -32,29 +32,52 @@ const Footer = () => {
 
           {/* Middle Section - Quick Links */}
           <div className="mb-8 md:mb-0 md:w-1/3">
-            <h3 className="text-xl font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-xl  items-center font-semibold mb-4">Quick Links</h3>
+            <div className="flex space-x-5">
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-yellow-500 transition duration-300">
+                <a href="/home" className="hover:text-yellow-500 transition duration-300">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition duration-300">
+                <a href="/about" className="hover:text-yellow-500 transition duration-300">
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-yellow-500 transition duration-300">
+                <a href="/book/age-of-the-impatient-leader" className="hover:text-yellow-500 transition duration-300">
                   Books
                 </a>
+              </li>
+              <li>
+                <a href="/speaking" className="hover:text-yellow-500 transition duration-300">
+                  Speaking
+                </a>
+              </li>
+            </ul>
+            <ul className="space-y-2">
+              <li>
+                 
               </li>
               <li>
                 <a href="#" className="hover:text-yellow-500 transition duration-300">
                   Consulting
                 </a>
               </li>
+              <li>
+                <a href="#" className="hover:text-yellow-500 transition duration-300">
+                  Publishing
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="hover:text-yellow-500 transition duration-300">
+                  Contact
+                </a>
+              </li>
             </ul>
+            </div> 
+
           </div>
 
           {/* Right Section - Contact Info */}
