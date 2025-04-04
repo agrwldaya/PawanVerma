@@ -29,12 +29,7 @@ const SpeakingPage = () => {
                 talks combine practical wisdom with cutting-edge insights.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="#booking"
-                  className="bg-[#f39c12] text-white px-6 py-2 rounded-sm hover:bg-[#e67e22] transition duration-300"
-                >
-                  Book Dr. Verma
-                </a>
+               
                 <a
                   href="#experience"
                   className="bg-[#f39c12] text-white px-6 py-2 rounded-sm hover:bg-[#e67e22] transition duration-300"

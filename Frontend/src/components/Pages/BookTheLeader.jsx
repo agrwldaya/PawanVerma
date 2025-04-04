@@ -37,10 +37,10 @@ const BookTheLeader = () => {
             </div>
 
           </div>
-              <p className="text-sm md:text-base mb-6">
+              <p className="text-sm md:text-base text-justify mb-6">
               the 10X leader—the one who looks at leadership as a responsibility to make the world a better place to live. Equipped with a larger purpose and a future-oriented mindset, this 10X leader harnesses the power of ideas and networks to transform businesses and societies, and above all, our lives and experiences.
               </p>  
-              <p className="text-sm md:text-base mb-6">
+              <p className="text-sm md:text-base text-justify mb-6">
               This book is carefully designed to help contemporary leaders get rid of the Industrial Age mindset and cultivate new beliefs and practices relevant to our times. It offers a refreshing perspective that has a huge potential of transforming lives and societies
               </p>
 

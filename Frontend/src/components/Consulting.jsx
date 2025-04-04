@@ -40,12 +40,7 @@ const ConsultingPage = () => {
               Pawan Verma provides expert consulting services to help organizations navigate complex challenges and
               achieve sustainable success.
             </p>
-            <a
-              href="/contact"
-              className="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-md transition duration-300"
-            >
-              Schedule a Consultation
-            </a>
+             
           </div>
         </div>
       </section>

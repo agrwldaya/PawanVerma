@@ -37,10 +37,10 @@ const BookNoClo = () => {
             </div>
 
           </div>
-              <p className="text-sm md:text-base mb-6">
+              <p className="text-sm md:text-base text-justify mb-6">
               The Thirsting for Revenge & Yearning for Love Patrick Brenner is a broken, distraught father, seeking revenge on his wife Irene, whom he considers responsible for the accidental death of his little son David. He is also gunning for Detective Jessica Galloway and her boyfriend Andrew Hoffman, especially since they had helped his son’s killer escape the clutches of law in one of the most horrendous miscarriages of justice the city had ever seen. Since there was no justice, he is now out to deliver justice, all by himself.
               </p>  
-              <p className="text-sm md:text-base mb-6">
+              <p className="text-sm md:text-base text-justify mb-6">
               Detective Jessica Galloway had fallen in love with one of the witnesses who testified on Irene Brenner’s behalf, leading to her acquittal. She is now torn between her passionate love for Andrew and her compelling urge to hunt down the suspect and bring him to book.
               </p>
 
