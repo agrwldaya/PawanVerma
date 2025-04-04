@@ -18,6 +18,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import AboutPage from "./components/AboutUs";
 import SpeakingPage from "./components/Speaking";
 import ConsultingPage from "./components/Consulting";
+import PublishingPage from "./components/Publishing";
  
 
  
@@ -37,6 +38,7 @@ import ConsultingPage from "./components/Consulting";
               <Route path="/about" element={<AboutPage/>} /> 
               <Route path="/speaking" element={<SpeakingPage/>} /> 
               <Route path="/consulting" element={<ConsultingPage/>} /> 
+              <Route path="/publishing" element={<PublishingPage/>} /> 
             </Routes>
           <Footer />
         </div>

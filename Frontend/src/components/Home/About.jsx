@@ -35,7 +35,7 @@ const AuthorContactPage = () => {
           />
           <div className="absolute inset-0 p-8 text-white flex flex-col justify-between">
             <div>
-              <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
+              <h2 className="text-3xl md:text-4xl">Contact Me</h2>
               <p className="mb-6">Get in touch with me on social media & never miss an update.</p>
             </div>
             

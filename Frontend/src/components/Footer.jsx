@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, FileDown } from "lucide-react"
+import pdf from '/Dr.-Pawan-Verma-A-Profile.pdf'
 
 const Footer = () => {
   return (
@@ -28,56 +29,68 @@ const Footer = () => {
                 <Youtube size={18} />
               </a>
             </div>
+            
+            {/* Download Resume Button */}
+            <a 
+              href={pdf}
+              download
+              className="group inline-flex items-center space-x-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 mt-6 border border-gray-600"
+            >
+              <span>Download Resume</span>
+              <FileDown 
+                size={18} 
+                className="transform group-hover:translate-y-1 transition-transform duration-300" 
+              />
+            </a>
           </div>
 
           {/* Middle Section - Quick Links */}
           <div className="mb-8 md:mb-0 md:w-1/3">
-            <h3 className="text-xl  items-center font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-xl items-center font-semibold mb-4">Quick Links</h3>
             <div className="flex space-x-5">
-            <ul className="space-y-2">
-              <li>
-                <a href="/home" className="hover:text-yellow-500 transition duration-300">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about" className="hover:text-yellow-500 transition duration-300">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="/book/age-of-the-impatient-leader" className="hover:text-yellow-500 transition duration-300">
-                  Books
-                </a>
-              </li>
-              <li>
-                <a href="/speaking" className="hover:text-yellow-500 transition duration-300">
-                  Speaking
-                </a>
-              </li>
-            </ul>
-            <ul className="space-y-2">
-              <li>
-                 
-              </li>
-              <li>
-                <a href="#" className="hover:text-yellow-500 transition duration-300">
-                  Consulting
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-yellow-500 transition duration-300">
-                  Publishing
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="hover:text-yellow-500 transition duration-300">
-                  Contact
-                </a>
-              </li>
-            </ul>
+              <ul className="space-y-2">
+                <li>
+                  <a href="/home" className="hover:text-yellow-500 transition duration-300">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/about" className="hover:text-yellow-500 transition duration-300">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="/book/age-of-the-impatient-leader" className="hover:text-yellow-500 transition duration-300">
+                    Books
+                  </a>
+                </li>
+                <li>
+                  <a href="/speaking" className="hover:text-yellow-500 transition duration-300">
+                    Speaking
+                  </a>
+                </li>
+              </ul>
+              <ul className="space-y-2">
+                <li>
+                  
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition duration-300">
+                    Consulting
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-yellow-500 transition duration-300">
+                    Publishing
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="hover:text-yellow-500 transition duration-300">
+                    Contact
+                  </a>
+                </li>
+              </ul>
             </div> 
-
           </div>
 
           {/* Right Section - Contact Info */}
@@ -99,4 +112,3 @@ const Footer = () => {
 }
 
 export default Footer
-

@@ -149,7 +149,7 @@ const Videos = () => {
   };
 
   return (
-    <section className=" bg-gradient-to-b from-white to-[#f5e9d1]">
+    <section className=" bg-gradient-to-b from-white to-[#f5e9d1] ">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-2">

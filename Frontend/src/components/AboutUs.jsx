@@ -2,6 +2,7 @@
 
 import { Link } from 'react-router-dom'
 import img from '/auther01.jpg'
+import pdf from '/Dr.-Pawan-Verma-A-Profile.pdf'
 
 import {
   Calendar,
@@ -25,106 +26,128 @@ const AboutPage = () => {
 
       {/* Hero Section */}
 
-      <section className="relative bg-gradient-to-b  from-white to-[#f5e9d1]  py-7">
-        <div className="absolute inset-0 opacity-20 bg-[url('/placeholder.svg')] bg-cover bg-center"></div>
-        <div className="container mx-auto px-4 relative">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/3 mb-8 md:mb-0">
-              <div className="relative">
-                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-yellow-500 mx-auto">
-                  <img
-                    src={img}
-                    alt="Pawan Verma"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-               
-              </div>
-            </div>
-
-            <div className="md:w-2/3 md:pl-12 text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Pawan Verma</h1>
-              <p className="text-xl md:text-2xl text-yellow-500 mb-6">Author | Speaker | Management Consultant</p>
-              <p className="text-lg leading-relaxed mb-8">
-                A visionary leader with over 25 years of experience in guiding businesses and individuals toward
-                excellence. My journey from the financial services sector to becoming an author and thought leader has
-                been driven by a passion for transformative leadership.
-              </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                <a
-                  href="#biography"
-                  className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md transition duration-300"
-                >
-                  My Story
-                </a>
-                <Link
-                  to="/contact"
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md transition duration-300"
-                >
-                  Get in Touch
-                </Link>
-              </div>
-            </div>
-           </div>
-          </div>
-      </section>
-
-      {/* Biography Section */}
-      <section id="biography" className="py-7 bg-gradient-to-b from-white to-[#f5e9d1]" >
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold inline-block relative">
-                Biography
-                <div className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-500"></div>
-              </h2>
-            </div>
-
-            <div className="prose prose-lg max-w-none">
-              <p>
-                Dr. Pawan Verma is an accomplished Author, Thought Leader, Professional Speaker and Management
-                Consultant from India's financial services sector. His leadership vision stems from his rich experience
-                in guiding start-ups, serving on boards and leading business initiatives in large organizations, such as
-                the Reliance Group of Industries, Reliance ADA Group, LIC of India and an Indo-Japanese start-up, Star
-                Union Dai-ichi Life Insurance.
-              </p>
-
-              <p>
-                Born and raised in Mumbai, Pawan developed an early interest in business and leadership. He completed
-                his education with distinction, earning a doctorate in Business Management with a focus on
-                organizational leadership. His academic background, combined with hands-on industry experience, has
-                given him a unique perspective on the challenges facing modern businesses.
-              </p>
-
-              <p>
-                Throughout his career, Pawan has been known for his innovative approach to leadership and management. He
-                believes that true leadership is not about perfection but about embracing imperfections and learning
-                from them. This philosophy forms the core of his bestselling book "Age of the Imperfect Leader," which
-                has been praised for its fresh take on leadership in today's rapidly changing business environment.
-              </p>
-
-              <p>
-                As a speaker, Pawan has addressed audiences across India and internationally, sharing insights on
-                leadership, innovation, and organizational transformation. His engaging presentation style and practical
-                advice have made him a sought-after speaker at corporate events, conferences, and educational
-                institutions.
-              </p>
-
-              <blockquote>
-                "If you continue doing business today with the methods of yesterday, you are bound to go out of business
-                tomorrow."
-                <footer>- Pawan Verma</footer>
-              </blockquote>
-
-              <p>
-                When not writing or speaking, Pawan enjoys reading, traveling, and mentoring young entrepreneurs. He
-                lives with his family in Mumbai and continues to be actively involved in various business and
-                philanthropic initiatives.
-              </p>
-            </div>
+      <section className="relative bg-gradient-to-b from-white to-[#f5e9d1] py-7">
+  <div className="absolute inset-0 opacity-20 bg-[url('/placeholder.svg')] bg-cover bg-center"></div>
+  <div className="container mx-auto px-4 relative">
+    <div className="flex flex-col md:flex-row items-center">
+      <div className="md:w-1/3 mb-8 md:mb-0">
+        <div className="relative">
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-yellow-500 mx-auto">
+            <img
+              src={img}
+              alt="Pawan Verma"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
-      </section>
+      </div>
+
+      <div className="md:w-2/3 md:pl-12 text-center md:text-left">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Pawan Verma</h1>
+        <p className="text-xl md:text-2xl text-yellow-500 mb-6">Author | Speaker | Management Consultant</p>
+        <p className="text-lg leading-relaxed mb-8 text-justify">
+          A visionary leader with over 25 years of experience in guiding businesses and individuals toward
+          excellence. My journey from the financial services sector to becoming an author and thought leader has
+          been driven by a passion for transformative leadership.
+        </p>
+        <div className="flex flex-wrap justify-center md:justify-start gap-4">
+          <a
+            href="#biography"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md transition duration-300"
+          >
+            My Story
+          </a>
+          <Link
+            to="/contact"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md transition duration-300"
+          >
+            Get in Touch
+          </Link>
+
+          <a
+            href={pdf}
+            download
+            className="group bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md transition duration-300 flex items-center space-x-2"
+          >
+            <span>Download Resume</span>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-5 w-5 transform group-hover:translate-y-1 transition-transform duration-300" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" 
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      {/* Biography Section */}
+      <section id="biography" className="py-7 bg-gradient-to-b from-white to-[#f5e9d1]">
+  <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold inline-block relative">
+          Biography
+          <div className="absolute -bottom-2 left-0 w-full h-1 bg-yellow-500"></div>
+        </h2>
+      </div>
+
+      {/* Justified text with spacing */}
+      <div className="prose prose-lg max-w-none text-justify space-y-4">
+        <p>
+          Dr. Pawan Verma is an accomplished Author, Thought Leader, Professional Speaker and Management
+          Consultant from India's financial services sector. His leadership vision stems from his rich experience
+          in guiding start-ups, serving on boards and leading business initiatives in large organizations, such as
+          the Reliance Group of Industries, Reliance ADA Group, LIC of India and an Indo-Japanese start-up, Star
+          Union Dai-ichi Life Insurance.
+        </p>
+
+        <p>
+          Born and raised in Mumbai, Pawan developed an early interest in business and leadership. He completed
+          his education with distinction, earning a doctorate in Business Management with a focus on
+          organizational leadership. His academic background, combined with hands-on industry experience, has
+          given him a unique perspective on the challenges facing modern businesses.
+        </p>
+
+        <p>
+          Throughout his career, Pawan has been known for his innovative approach to leadership and management. He
+          believes that true leadership is not about perfection but about embracing imperfections and learning
+          from them. This philosophy forms the core of his bestselling book "Age of the Imperfect Leader," which
+          has been praised for its fresh take on leadership in today's rapidly changing business environment.
+        </p>
+
+        <p>
+          As a speaker, Pawan has addressed audiences across India and internationally, sharing insights on
+          leadership, innovation, and organizational transformation. His engaging presentation style and practical
+          advice have made him a sought-after speaker at corporate events, conferences, and educational
+          institutions.
+        </p>
+
+        <blockquote className="text-center font-semibold text-lg italic text-gray-700">
+          "If you continue doing business today with the methods of yesterday, you are bound to go out of business
+          tomorrow."
+          <footer className="text-right text-gray-500">- Pawan Verma</footer>
+        </blockquote>
+
+        <p>
+          When not writing or speaking, Pawan enjoys reading, traveling, and mentoring young entrepreneurs. He
+          lives with his family in Mumbai and continues to be actively involved in various business and
+          philanthropic initiatives.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Professional Journey */}
     <section className="py-7  bg-gradient-to-b from-white to-[#f5e9d1]">
@@ -351,7 +374,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className="mt-6">
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-600 text-justify">
                     Dr. Verma has also contributed articles to leading publications including The Times of India,
                     Hindustan Times, Economic Times, Indian Express, The Pioneer, BFSI Vision, Insurance Times, and IRDA
                     Journal.
@@ -556,7 +579,7 @@ const TimelineItem = ({ year, title, description, icon, isLeft }) => {
             <span className="font-bold  ">{year}</span>
           </div>
           <h3 className="text-xl font-bold mb-2">{title}</h3>
-          <p className=" -600">{description}</p>
+          <p className="text-gray-200 text-justify">{description}</p>
         </div>
       </div>
     </div>

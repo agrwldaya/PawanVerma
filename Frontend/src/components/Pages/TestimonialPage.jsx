@@ -26,12 +26,12 @@ const TestimonialCard = ({ name, image, rating, testimonial }) => {
           <h3 className="font-bold">{name}</h3>
         </div>
       </div>
-      <p className="text-gray-600 text-sm">{testimonial}</p>
+      <p className="text-gray-600 text-justify text-sm">{testimonial}</p>
     </div>
   )
 }
 
-const TestimonialsPage = ({testimonials}) => {
+const TestimonialsPage = ({testimonials,heading}) => {
   const [activeSlide, setActiveSlide] = useState(0)
   const [totalSlides, setTotalSlides] = useState(0)
   const [visibleSlides, setVisibleSlides] = useState(0)
@@ -88,7 +88,7 @@ const TestimonialsPage = ({testimonials}) => {
           <div className="flex items-center justify-center gap-3 mb-2">
             <div className="h-0.5 w-12 bg-[#B8860B]" />
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-            Book Testimonials
+            {heading} Testimonials
             </h2>
             <div className="h-0.5 w-12 bg-[#B8860B]" />
           </div>

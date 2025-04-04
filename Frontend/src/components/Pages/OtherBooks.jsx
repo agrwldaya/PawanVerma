@@ -26,10 +26,10 @@ const BookCard = ({ title, description, image, altText }) => {
       </div>
       <div className="p-4 flex flex-col flex-grow">
         <h3 className="font-bold text-lg mb-2">{title}</h3>
-        <p className="text-sm mb-4 flex-grow">{description}...</p>
+        <p className="text-sm mb-4 text-justify flex-grow" >{description}...</p>
         <Link
           to={`/book/${formattedTitle}`} 
-          className="bg-yellow-500 text-white px-4 py-2 rounded-sm w-full hover:bg-yellow-600 transition duration-300 mt-auto"
+          className="bg-yellow-500 text-center text-white px-4 py-2 rounded-sm w-full hover:bg-yellow-600 transition duration-300 mt-auto"
         >
           Read More
         </Link>

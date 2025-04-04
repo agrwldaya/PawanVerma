@@ -1,4 +1,4 @@
-"use client"
+ 
 
 import { useState, useRef, useEffect } from "react"
 
@@ -10,7 +10,7 @@ const AvailableOn = () => {
 
   // Using placeholder paths for the images
   const amazonLogo = "/amazon.png"
-  const flipkartLogo = "/flipcart.jpg"
+  const flipkartLogo = "/flipcart.png"
   const kindleLogo = "/amazonkindle.png"
   const goodreadsLogo = "/Goodreads.png"
   const bgimage = "/library.jpg"

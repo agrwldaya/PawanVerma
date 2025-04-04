@@ -39,11 +39,11 @@ const BookAgeOf = () => {
             </div>
 
           </div>
-              <p className="text-sm md:text-base mb-6">
+              <p className="text-sm md:text-base mb-6 text-justify">
               With a down-to-earth approach, leadership expert and practitioner Dr. Pawan Verma gets beyond the rhetoric associated with leadership and asserts that the secret of exceptional leadership is to be great at something rather than being good at everything. He therefore, makes the unequivocal suggestion that you should have the courage to be imperfect and the determination to make your strengths so formidable that your weaknesses become irrelevant.
               How’s that for a change?!
               </p>  
-              <p className="text-sm md:text-base mb-6">
+              <p className="text-sm md:text-base mb-6 text-justify">
               In a powerful narrative, enriched with stories from the lives of great leaders, this book debunks the myth of perfect leaders and unravels the key secrets of leadership success in the modern world. It is the pragmatic guide for leaders aspiring to convert their leadership challenges into a competitive advantage for themselves and for their organizations.
               </p>
 

@@ -26,7 +26,7 @@ const TestimonialCard = ({ name, image, rating, testimonial }) => {
           <h3 className="font-bold">{name}</h3>
         </div>
       </div>
-      <p className="text-gray-600 text-sm">{testimonial}</p>
+      <p className="text-gray-600 text-sm text-justify">{testimonial}</p>
     </div>
   )
 }
