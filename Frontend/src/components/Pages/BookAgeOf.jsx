@@ -3,7 +3,7 @@
 import { Star} from "lucide-react"
 import book2 from '/singlebook01.png';
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
  
  
 import Testimonials from "../Home/Testimonials";
@@ -48,9 +48,9 @@ const BookAgeOf = () => {
               </p>
 
               <div className="flex space-x-4 mb-6">
-                <button className="bg-[#f39c12] text-white px-6 py-2 rounded-sm hover:bg-[#e67e22] transition duration-300">
+                <Link to="https://www.amazon.in/Age-Imperfect-Leader-Leading-Strength/dp/9353336449" className="bg-[rgb(243,156,18)] text-white px-6 py-2 rounded-sm hover:bg-[#e67e22] transition duration-300">
                   Buy Now
-                </button>
+                </Link>
                
               </div>
             </div>

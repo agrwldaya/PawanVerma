@@ -8,6 +8,7 @@ import Testimonials from "../Home/Testimonials";
 import Books from "../Home/Books";
 import OtherBooks from "../Pages/OtherBooks";
 import AvailableOn from "../Home/AvailableOn";
+import { Link } from "react-router-dom";
 
 const BookTheLeader = () => {
   return (
@@ -45,9 +46,9 @@ const BookTheLeader = () => {
               </p>
 
               <div className="flex space-x-4 mb-6">
-                <button className="bg-[#f39c12] text-white px-6 py-2 rounded-sm hover:bg-[#e67e22] transition duration-300">
+                <Link to="https://www.amazon.in/10X-Leader-Breaking-Conventional-Leadership-ebook/dp/B0D9H7QZ2G" className="bg-[#f39c12] text-white px-6 py-2 rounded-sm hover:bg-[#e67e22] transition duration-300">
                   Buy Now
-                </button>
+                </Link>
                
               </div>
             </div>
