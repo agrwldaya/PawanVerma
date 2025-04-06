@@ -43,8 +43,9 @@ const Header = () => {
             { label: "Books", href: "/book/age-of-the-impatient-leader" },
             { label: "Speaking", href: "/speaking" },
             { label: "Consulting", href: "/consulting" },
-            { label: "Publishing", href: "/#publishing" },
+            { label: "Publishing", href: "/publishing" },
             { label: "Contact", href: "/contact" },
+            { label: "Media", href: "/media" },
           ].map((link) => {
             const isActive = location.pathname === link.href || (link.label === "Books" && isBooksActive);
             return (
@@ -72,8 +73,9 @@ const Header = () => {
             { label: "Books", href: "/book/age-of-the-impatient-leader" },
             { label: "Speaking", href: "/speaking" },
             { label: "Consulting", href: "/consulting" },
-            { label: "Publishing", href: "/#publishing" },
+            { label: "Publishing", href: "/publishing" },
             { label: "Contact", href: "/contact" },
+            { label: "Media", href: "/media" },
           ].map((link) => {
             const isActive = location.pathname === link.href || (link.label === "Books" && isBooksActive);
             return (

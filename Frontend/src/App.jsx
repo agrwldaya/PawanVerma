@@ -9,7 +9,7 @@ import Header from "./components/Header";
 // import Hero from "./components/Home/Hero";
 // import Testimonials from "./components/Home/Testimonials";
 // import Videos from "./components/Home/Videos";
-import Home from "./Home";
+import Home from "./components/Home";
 import BookAgeOf from "./components/Pages/BookAgeOf";
 import BookTheLeader from "./components/Pages/BookTheLeader";
 import BookUnB from "./components/Pages/BookUnB";
@@ -19,6 +19,7 @@ import AboutPage from "./components/AboutUs";
 import SpeakingPage from "./components/Speaking";
 import ConsultingPage from "./components/Consulting";
 import PublishingPage from "./components/Publishing";
+import MediaPage from "./components/MediaPage";
  
 
  
@@ -39,6 +40,7 @@ import PublishingPage from "./components/Publishing";
               <Route path="/speaking" element={<SpeakingPage/>} /> 
               <Route path="/consulting" element={<ConsultingPage/>} /> 
               <Route path="/publishing" element={<PublishingPage/>} /> 
+              <Route path="/media" element={<MediaPage/>} /> 
             </Routes>
           <Footer />
         </div>
