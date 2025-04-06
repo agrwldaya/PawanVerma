@@ -177,9 +177,9 @@ const MediaPage = () => {
     switch (item.type) {
       case "article":
         return (
-          <div className="bg-white h-full w-full rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1  hover:shadow-lg flex flex-col">
+          <div className="bg-[#372b12] text-white h-full w-full rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1  hover:shadow-lg flex flex-col">
             <div className="p-6 flex flex-col flex-grow">
-              <div className="flex items-center text-sm text-gray-500 mb-2">
+              <div className="flex items-center text-sm text-white mb-2">
                 <Newspaper className="w-4 h-4 mr-1" />
                 <span>{item.source}</span>
                 <span className="mx-2">•</span>
@@ -187,9 +187,9 @@ const MediaPage = () => {
                 <span>{item.date}</span>
               </div>
               <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-              <p className="text-gray-600 mb-4 flex-grow">{item.description}</p>
+              <p className="text-gray-200 mb-4 flex-grow">{item.description}</p>
         
-              <div className="mt-auto flex justify-between items-center">
+              <div className="mt-auto flex justify-between  items-center">
                 <a
                   href={item.link}
                   className="text-yellow-600 hover:text-yellow-800 font-medium flex items-center"
@@ -198,9 +198,7 @@ const MediaPage = () => {
                 >
                   Read Article <ExternalLink className="ml-1 h-4 w-4" />
                 </a>
-                <button className="text-gray-500 hover:text-gray-700">
-                  <Share2 className="h-5 w-5" />
-                </button>
+               
               </div>
             </div>
           </div>
@@ -209,9 +207,9 @@ const MediaPage = () => {
 
       case "video":
         return (
-          <div className="bg-white h-full w-full rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col">
+          <div className="bg-[#372b12] text-white h-full w-full rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col">
             <div
-              className="aspect-video relative overflow-hidden bg-gray-100 cursor-pointer"
+              className="aspect-video relative overflow-hidden  cursor-pointer"
               onClick={() =>
                 openVideoModal(`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1`)
               }
@@ -227,19 +225,19 @@ const MediaPage = () => {
               />
               <div className="absolute inset-0 bg-opacity-40 flex items-center justify-center">
                 <div className="bg-yellow-500 rounded-full p-3">
-                  <Play className="h-6 w-6 text-black" />
+                  <Play className="h-6 w-6" />
                 </div>
               </div>
-              <div className="absolute top-0 left-0 bg-yellow-500 text-black px-3 py-1 text-xs font-bold">
+              <div className="absolute top-0 left-0 bg-yellow-500  px-3 py-1 text-xs font-bold">
                 Video
               </div>
-              <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white px-2 py-1 text-xs rounded">
+              <div className="absolute bottom-2 right-2  bg-opacity-70 text-white px-2 py-1 text-xs rounded">
                 {item.duration}
               </div>
             </div>
         
             <div className="p-6 flex flex-col flex-grow">
-              <div className="flex items-center text-sm text-gray-500 mb-2">
+              <div className="flex items-center text-sm  mb-2">
                 <Video className="w-4 h-4 mr-1" />
                 <span>{item.source}</span>
                 <span className="mx-2">•</span>
@@ -247,7 +245,7 @@ const MediaPage = () => {
                 <span>{item.date}</span>
               </div>
               <h3 className="font-bold text-xl mb-2 line-clamp-2">{item.title}</h3>
-              <p className="text-gray-600 mb-4 line-clamp-2 flex-grow">{item.description}</p>
+              <p className="text-gray-200 mb-4 line-clamp-2 flex-grow">{item.description}</p>
         
               <div className="mt-auto flex justify-between items-center">
                 <button
@@ -256,9 +254,7 @@ const MediaPage = () => {
                 >
                   Watch Video <Play className="ml-1 h-4 w-4" />
                 </button>
-                <button className="text-gray-500 hover:text-gray-700">
-                  <Share2 className="h-5 w-5" />
-                </button>
+               
               </div>
             </div>
           </div>
@@ -268,9 +264,9 @@ const MediaPage = () => {
       case "interview":
       default:
         return (
-          <div className="bg-white h-full w-full rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-1  overflow-hidden   hover:shadow-lg flex flex-col">
+          <div className="bg-[#372b12] text-white h-full w-full rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-1  overflow-hidden   hover:shadow-lg flex flex-col">
             <div className="p-6 flex flex-col flex-grow">
-              <div className="flex items-center text-sm text-gray-500 mb-2">
+              <div className="flex items-center text-sm mb-2">
                 <Radio className="w-4 h-4 mr-1" />
                 <span>{item.source}</span>
                 <span className="mx-2">•</span>
@@ -278,7 +274,7 @@ const MediaPage = () => {
                 <span>{item.date}</span>
               </div>
               <h3 className="font-bold text-xl mb-2">{item.title}</h3>
-              <p className="text-gray-600 mb-4 flex-grow">{item.description}</p>
+              <p className="text-gray-200 mb-4 flex-grow">{item.description}</p>
         
               <div className="mt-auto flex justify-between items-center">
                 <a
@@ -289,9 +285,7 @@ const MediaPage = () => {
                 >
                   Read More <ExternalLink className="ml-1 h-4 w-4" />
                 </a>
-                <button className="text-gray-500 hover:text-gray-700">
-                  <Share2 className="h-5 w-5" />
-                </button>
+                 
               </div>
             </div>
           </div>
