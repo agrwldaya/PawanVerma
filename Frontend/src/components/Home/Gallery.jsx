@@ -1,6 +1,8 @@
-"use client"
+ 
 
 import { useState, useRef, useEffect } from "react"
+ 
+import { Link } from "react-router-dom"
 
 const Gallery = () => {
   const [activeSlide, setActiveSlide] = useState(0)
@@ -130,10 +132,16 @@ const Gallery = () => {
             </div>
           )}
         </div>
+
+        {/* View More Button */}
+        <div className="text-center mt-8">
+          <Link to="/gallery" className="inline-block px-6 py-3 bg-[#B8860B] text-white font-medium rounded-md hover:bg-[#906c0a] transition-colors duration-300">
+            View More
+          </Link>
+        </div>
       </div>
-    </section>
+    </section>  
   )
 }
 
 export default Gallery
-
