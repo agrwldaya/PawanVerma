@@ -20,6 +20,8 @@ import SpeakingPage from "./components/Speaking";
 import ConsultingPage from "./components/Consulting";
 import PublishingPage from "./components/Publishing";
 import MediaPage from "./components/MediaPage";
+import Gallery from "./components/Home/Gallery";
+import GalleryPage from "./components/Gallery";
  
 
  
@@ -41,6 +43,7 @@ import MediaPage from "./components/MediaPage";
               <Route path="/consulting" element={<ConsultingPage/>} /> 
               <Route path="/publishing" element={<PublishingPage/>} /> 
               <Route path="/media" element={<MediaPage/>} /> 
+              <Route path="/gallery" element={<GalleryPage/>} /> 
             </Routes>
           <Footer />
         </div>
