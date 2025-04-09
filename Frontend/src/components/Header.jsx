@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "/logo.png";
 
@@ -47,10 +47,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black text-white">
+    <header className="bg-black text-white ">
       <div className="container mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
         {/* Logo - Adjusted for better responsiveness */}
-        <div className="flex items-center mr-4">
+        <Link to='/' className="flex items-center mr-4">
           <div className="h-16 md:h-20 w-auto">
             <img
               src={logo}
@@ -62,7 +62,7 @@ const Header = () => {
               }}
             />
           </div>
-        </div>
+        </Link>
 
         {/* Mobile menu button */}
         <div className="md:hidden">

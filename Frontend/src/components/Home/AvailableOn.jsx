@@ -9,8 +9,8 @@ const AvailableOn = () => {
   const autoScrollIntervalRef = useRef(null)
 
   // Using placeholder paths for the images
-  const amazonLogo = "/amazon.png"
-  const flipkartLogo = "/flipcart.png"
+  const amazonLogo = "/amazon02.png"
+  const flipkartLogo = "/flipcart03.png"
   const kindleLogo = "/amazonkindle.png"
   const goodreadsLogo = "/Goodreads.png"
   const bgimage = "/library.jpg"
@@ -112,7 +112,7 @@ const AvailableOn = () => {
             <img
               src={logo.src || "/placeholder.svg"}
               alt={logo.alt}
-              className="max-h-full max-w-full object-contain"
+              className=" object-contain"
               onError={(e) => {
                 e.target.onerror = null
                 e.target.src = "/placeholder.svg?height=100&width=100"

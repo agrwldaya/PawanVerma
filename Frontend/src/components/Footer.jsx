@@ -3,14 +3,14 @@ import pdf from '/Dr.-Pawan-Verma-A-Profile.pdf'
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12 relative overflow-hidden">
+    <footer className="bg-black text-white py-12  relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between">
           {/* Left Section - Name and Bio */}
           <div className="mb-8 md:mb-0 md:w-1/3">
             <h2 className="text-2xl md:text-3xl font-bold mb-2">Pawan Verma</h2>
             <p className="text-sm text-gray-300 mb-4">
-              Speaker and Management Consultant from India Speaker and Management Consultant from India
+              Speaker and Management Consultant from India
             </p>
             <div className="flex space-x-3">
               <a href="https://www.instagram.com/pawan.amrev/" className="bg-gray-700 p-2 rounded-full hover:bg-gray-600 transition duration-300">
@@ -50,7 +50,7 @@ const Footer = () => {
             <div className="flex space-x-5">
               <ul className="space-y-2">
                 <li>
-                  <a href="/home" className="hover:text-yellow-500 transition duration-300">
+                  <a href="/" className="hover:text-yellow-500 transition duration-300">
                     Home
                   </a>
                 </li>
@@ -69,19 +69,27 @@ const Footer = () => {
                     Speaking
                   </a>
                 </li>
+                <li>
+                  <a href="/consulting" className="hover:text-yellow-500 transition duration-300">
+                  Consulting
+                  </a>
+                </li>
+                 
               </ul>
               <ul className="space-y-2">
                 <li>
-                  
-                </li>
-                <li>
-                  <a href="#" className="hover:text-yellow-500 transition duration-300">
-                    Consulting
+                  <a href="/publishing" className="hover:text-yellow-500 transition duration-300">
+                    Publishing
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-500 transition duration-300">
-                    Publishing
+                  <a href="/media" className="hover:text-yellow-500 transition duration-300">
+                    Media
+                  </a>
+                </li>
+                <li>
+                  <a href="/gallery" className="hover:text-yellow-500 transition duration-300">
+                    Gallery
                   </a>
                 </li>
                 <li>
