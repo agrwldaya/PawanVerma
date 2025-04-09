@@ -39,12 +39,12 @@ const SpeakingPage = () => {
               </div>
             </div>
 
-            <div className="md:w-1/2 md:pl-12">
+            <div className="md:w-1/2  md:pl-12  ">
               <div className="relative">
                 <img
                   src={img2}
                   alt="Dr. Pawan Verma Speaking"
-                  className="rounded-lg  shadow-2xl w-full"
+                  className="rounded-lg md:h-[518px] mb-5 shadow-2xl w-full"
                 />
                  
               </div>
