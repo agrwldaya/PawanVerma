@@ -33,7 +33,7 @@ import GalleryPage from "./components/Gallery";
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/contact" element={<ContactUs />} /> 
+              {/* <Route path="/contact" element={<ContactUs />} /> 
               <Route path="/book/age-of-the-impatient-leader" element={<BookAgeOf />} /> 
               <Route path="/book/the-10x-leader" element={<BookTheLeader />} /> 
               <Route path="/book/unbroken" element={<BookUnB />} /> 
@@ -43,7 +43,7 @@ import GalleryPage from "./components/Gallery";
               <Route path="/consulting" element={<ConsultingPage/>} /> 
               <Route path="/publishing" element={<PublishingPage/>} /> 
               <Route path="/media" element={<MediaPage/>} /> 
-              <Route path="/gallery" element={<GalleryPage/>} /> 
+              <Route path="/gallery" element={<GalleryPage/>} />  */}
             </Routes>
           <Footer />
         </div>

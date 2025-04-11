@@ -11,8 +11,6 @@ const SpeakingPage = () => {
    
   const videoRef = useRef(null)
 
-  
-
   return (
     <div className="bg-gradient-to-b mt-5 from-white to-[#f5e9d1] ">
       {/* Hero Section */}
